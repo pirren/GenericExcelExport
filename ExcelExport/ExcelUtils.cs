@@ -11,10 +11,10 @@ namespace ExcelExport
 
         }
 
-        public void BuildExcelSheet<T>(ExportToCsv<T> exportdata) where T : class
+        public void BuildExcelSheet<T>(ExportToCsv<T> exportdata) 
         {
-            using var workbook = new XLWorkbook();
-            Type t = typeof(T);
+            using var workbook = new XLWorkbook(); // todo: implement
+            Type t = typeof(T); 
 
             var columns = exportdata.GetColumnNames();
             var data = exportdata.GetPropValues();

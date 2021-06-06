@@ -2,7 +2,7 @@
 using ExcelExport;
 using ExcelExport.Models;
 using System;
-using System.Linq;
+using System.Collections.Generic;
 
 namespace Client
 {
@@ -10,14 +10,25 @@ namespace Client
     {
         static void Main(string[] args)
         {
-            ExportToCsv<Invoice> exportData = new(
-            new[] {
+            var genericData = new List<Invoice>()
+            {
                 new Invoice { Amount = 200, DueDate = DateTime.Parse("2021-06-30"), FirstName = "Pierre", LastName ="Nygård" },
                 new Invoice { Amount = 300, DueDate = DateTime.Parse("2021-07-30"), FirstName = "Pierre", LastName ="Nygård" }
-            }.ToList());
+            };
+            var genericsExportData = GetGenericsExportData(genericData);
 
             ExcelUtils excelTools = new();
-            excelTools.BuildExcelSheet(exportData);
+            ExcelUtils.BuildExcelSheet(genericsExportData);
+        }
+
+        static ExportToCsv<T> GetGenericsExportData<T>(List<T> data)
+        {
+            return new ExportToCsv<T>(data);
+        }
+
+        public static List<T> CreateList<T>(params T[] items)
+        {
+            return new List<T>(items);
         }
     }
 }

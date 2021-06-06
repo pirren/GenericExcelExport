@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace ExcelExport.Models
 {
-    public class ExportToCsv<T>
+    public class ExportToCsv<T> : ExportToCsvBase
     {
         public List<T> Data { get; private set; }
 
@@ -12,12 +13,12 @@ namespace ExcelExport.Models
             Data = obj;
         }
 
-        public string[] GetColumnNames()
+        public override string[] GetColumnNames()
         {
             return typeof(T).GetProperties().Select(s => s.Name).ToArray();
         }
 
-        public string[][] GetPropValues()
+        public override List<string[]> GetPropValues()
         {
             List<string[]> returnList = new();
 
@@ -33,7 +34,22 @@ namespace ExcelExport.Models
                 returnList.Add(itemProperties.ToArray());
             }
 
-            return returnList.ToArray();
+            return returnList;
         }
+    }
+
+    public abstract class ExportToCsvBase
+    {
+        /// <summary>
+        /// Get column names for excel sheet. Must be overwritten!
+        /// </summary>
+        /// <returns>Column names</returns>
+        public abstract string[] GetColumnNames();
+
+        /// <summary>
+        /// Get property values of each item for excel sheet. Must be overwritten!
+        /// </summary>
+        /// <returns>List of array with each property value for each item</returns>
+        public abstract List<string[]> GetPropValues();
     }
 }
