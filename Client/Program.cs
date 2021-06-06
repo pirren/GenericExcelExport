@@ -10,20 +10,16 @@ namespace Client
     {
         static void Main(string[] args)
         {
+            ExcelUtils excelTools = new();
+
             var genericData = new List<Invoice>()
             {
                 new Invoice { Amount = 200, DueDate = DateTime.Parse("2021-06-30"), FirstName = "Pierre", LastName ="Nygård" },
                 new Invoice { Amount = 300, DueDate = DateTime.Parse("2021-07-30"), FirstName = "Pierre", LastName ="Nygård" }
             };
-            var genericsExportData = GetGenericsExportData(genericData);
+            ExportToCsv<Invoice> genericsExportData = new(genericData);
 
-            ExcelUtils excelTools = new();
-            ExcelUtils.BuildExcelSheet(genericsExportData);
-        }
-
-        static ExportToCsv<T> GetGenericsExportData<T>(List<T> data)
-        {
-            return new ExportToCsv<T>(data);
+            excelTools.BuildExcelSheet(genericsExportData);
         }
 
         public static List<T> CreateList<T>(params T[] items)

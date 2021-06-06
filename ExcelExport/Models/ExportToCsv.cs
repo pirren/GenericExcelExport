@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 
 namespace ExcelExport.Models
@@ -13,7 +12,7 @@ namespace ExcelExport.Models
             Data = obj;
         }
 
-        public override string[] GetColumnNames()
+        public override string[] GetColumnHeaders()
         {
             return typeof(T).GetProperties().Select(s => s.Name).ToArray();
         }
@@ -44,7 +43,7 @@ namespace ExcelExport.Models
         /// Get column names for excel sheet. Must be overwritten!
         /// </summary>
         /// <returns>Column names</returns>
-        public abstract string[] GetColumnNames();
+        public abstract string[] GetColumnHeaders();
 
         /// <summary>
         /// Get property values of each item for excel sheet. Must be overwritten!

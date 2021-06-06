@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExcelExport", "ExcelExport\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csproj", "{9413888C-A451-4539-A62F-CEC9D395E6B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{056DE0AE-B4AD-432A-8756-4E4037656290}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{056DE0AE-B4AD-432A-8756-4E4037656290}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib", "Lib\Lib.csproj", "{E31273D6-E81F-43BE-A1E6-DD87C69A4CEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{056DE0AE-B4AD-432A-8756-4E4037656290}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{056DE0AE-B4AD-432A-8756-4E4037656290}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{056DE0AE-B4AD-432A-8756-4E4037656290}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E31273D6-E81F-43BE-A1E6-DD87C69A4CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E31273D6-E81F-43BE-A1E6-DD87C69A4CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E31273D6-E81F-43BE-A1E6-DD87C69A4CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E31273D6-E81F-43BE-A1E6-DD87C69A4CEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

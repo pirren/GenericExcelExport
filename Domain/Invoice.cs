@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Lib;
+using System;
 
 namespace Domain
 {
+    [ExcelExportable]
     public class Invoice
     {
         public string FirstName { get; set; }
